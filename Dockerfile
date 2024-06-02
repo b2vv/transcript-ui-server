@@ -1,5 +1,5 @@
 # First stage: build
-FROM node:lts-alpine3.20 AS builder
+FROM node:lts-alpine AS builder
 
 # Create and change to the app directory
 WORKDIR /app
@@ -24,4 +24,4 @@ COPY --from=builder /app/dist .
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-
+EXPOSE 80
